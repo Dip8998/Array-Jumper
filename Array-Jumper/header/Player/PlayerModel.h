@@ -1,22 +1,22 @@
 #pragma once
 
-namespace Player {
-
-	enum class PlayerState {
-		ALIVE,DEAD
+namespace Player
+{
+	enum class PlayerState
+	{
+		Alive = 0,
+		Dead = 1
 	};
-
-	class PlayerModel {
+	class PlayerModel
+	{
 	private:
-		PlayerState player_state;
 		int current_position;
-
+		PlayerState player_state;
 	public:
-		PlayerState getPlayerState();
-		void setPlayerState(PlayerState new_player_state);
+		PlayerState GetPlayerState();
+		void SetPlayerState(PlayerState state);
 
-		int getCurrentPosition();
-		void setCurrentPosition(int new_position);
-
+		int GetCurrentPosition();
+		void SetCurrentPosition(int position);
 	};
 }

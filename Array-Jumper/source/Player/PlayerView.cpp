@@ -1,55 +1,71 @@
 #include "../../header/Player/PlayerView.h"
-#include "../../header/Global/Config.h" 
+#include "../../header/Player/PlayerController.h"
+#include "../../header/Global/Config.h"
 #include "../../header/Global/ServiceLocator.h"
+#include "../../header/Player/PlayerModel.h"
 
+using namespace Player;
 using namespace Global;
 
-namespace Player {
-	PlayerView::PlayerView(PlayerController* controller) {
-		game_window = nullptr;
-		player_image = new UI::UIElement::ImageView();
-	}
-	PlayerView::~PlayerView() {}
+void PlayerView::InitializePlayerImage()
+{
+	player_image->initialize(Config::character_texture_path, player_width, player_height, Vector2f(0.f, 0.f));
+}
 
-	void PlayerView::initialize()
+void PlayerView::DrawPlayer()
+{
+	player_image->render();
+}
+
+void PlayerView::LoadPlayer()
+{
+	CalculatePlayerDimensions();
+	InitializePlayerImage();
+}
+
+void PlayerView::CalculatePlayerDimensions()
+{
+	player_height =100.f;
+	player_width = 100.f;
+}
+
+void PlayerView::UpdatePlayerPosition()
+{
+	player_image->setPosition(CalculatePlayerPosition());
+}
+
+Vector2f PlayerView::CalculatePlayerPosition()
+{
+	return Vector2f(0, 0);
+}
+
+PlayerView::PlayerView(Player_Controller* controller)
+{
+	player_controller = controller;
+	player_image = new ImageView();
+}
+
+PlayerView::~PlayerView()
+{
+}
+
+void PlayerView::Initialize()
+{
+	game_window = ServiceLocator::getInstance()->getGraphicService()->getGameWindow();
+	LoadPlayer();
+}
+
+void PlayerView::Update()
+{
+	UpdatePlayerPosition();
+}
+
+void PlayerView::Render()
+{
+	switch (player_controller->GetPlayerState())
 	{
-		game_window = ServiceLocator::getInstance()->getGraphicService()->getGameWindow();
-		loadPlayer();
-	}
-
-	void PlayerView::update()
-	{
-		updatePlayerPosition();
-	}
-
-	void PlayerView::render()
-	{
-		drawPlayer();
-	}
-
-	void PlayerView::calculatePlayerDimensions() {
-		player_width = 1000.f;
-		player_height = 1000.f;
-	}
-
-	void PlayerView::initializePlayerImage() {
-		player_image->initialize(Config::character_texture_path, player_width, player_height, sf::Vector2f(0,0));
-	}
-
-	void PlayerView::loadPlayer() {
-		calculatePlayerDimensions();
-		initializePlayerImage();
-	}
-
-	sf::Vector2f PlayerView::calulcatePlayerPosition() {
-		return sf::Vector2f(0, 0);
-	}
-
-	void PlayerView::updatePlayerPosition() {
-		player_image->setPosition(calulcatePlayerPosition());
-	}
-
-	void PlayerView::drawPlayer() {
-		player_image->render();
+	case PlayerState::Alive:
+		DrawPlayer();
+		break;
 	}
 }
