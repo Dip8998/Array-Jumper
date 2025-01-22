@@ -25,8 +25,8 @@ void PlayerView::LoadPlayer()
 
 void PlayerView::CalculatePlayerDimensions()
 {
-	player_height =1000.f;
-	player_width = 1000.f;
+	player_height =100.f;
+	player_width = 100.f;
 }
 
 void PlayerView::UpdatePlayerPosition()

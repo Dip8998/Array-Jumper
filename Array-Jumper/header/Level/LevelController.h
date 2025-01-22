@@ -1,23 +1,30 @@
 #pragma once
-#include "LevelModel.h"
+#include "BlockType.h"
 
 namespace Level
 {
-	class LevelView;
 	class LevelModel;
+	class LevelView;
+	struct BoxDimensions;
 
 	class LevelController
 	{
 	private:
-		LevelView* level_view;
 		LevelModel* level_model;
+		LevelView* level_view;
+
+		void destroy();
 
 	public:
 		LevelController();
 		~LevelController();
 
+
 		void initialize();
 		void update();
 		void render();
+
+		BlockType getCurrentBoxValue(int currentPosition);
+		BoxDimensions getBoxDimensions();
 	};
 }

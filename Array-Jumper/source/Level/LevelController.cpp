@@ -1,17 +1,19 @@
 #include "../../header/Level/LevelController.h"
-#include "../../header/Level/LevelView.h"
 #include "../../header/Level/LevelModel.h"
+#include "../../header/Level/LevelView.h"
 
 namespace Level
 {
-
 	LevelController::LevelController()
 	{
+		level_model = new LevelModel();
 		level_view = new LevelView(this);
-		//level_model = new LevelModel();
 	}
 
-	LevelController::~LevelController() {}
+	LevelController::~LevelController()
+	{
+		destroy();
+	}
 
 	void LevelController::initialize()
 	{
@@ -27,4 +29,22 @@ namespace Level
 	{
 		level_view->render();
 	}
+
+	void LevelController::destroy()
+	{
+		delete(level_model);
+		delete(level_view);
+	}
+
+	BlockType LevelController::getCurrentBoxValue(int currentPosition)
+	{
+		return level_model->getCurrentBoxValue(currentPosition);
+
+	}
+
+	BoxDimensions LevelController::getBoxDimensions()
+	{
+		return level_view->getBoxDimensions();
+	}
+
 }

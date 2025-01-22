@@ -14,7 +14,7 @@ namespace Level
 		LevelService();
 		~LevelService();
 
-		void intialize();
+		void initialize();
 		void update();
 		void render();
 	};
