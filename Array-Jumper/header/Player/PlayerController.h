@@ -5,24 +5,26 @@ namespace Player
 	class PlayerView;
 	class PlayerModel;
 	enum class PlayerState;
-	class Player_Controller
+
+	class PlayerController
 	{
 	private:
 		PlayerModel* player_model;
 		PlayerView* player_view;
 
-		void Destroy();
+		void destroy();
 
 	public:
-		Player_Controller();
-		~Player_Controller();
+		PlayerController();
+		~PlayerController();
 
-		void Initialize();
-		void Update();
-		void Render();
+		void initialize();
+		void update();
+		void render();
 
-		PlayerState GetPlayerState();
-		void SetPlayerState(PlayerState state);
-		int GetCurrentPosition();
+		PlayerState getPlayerState();
+		void setPlayerState(PlayerState new_player_state);
+
+		int getCurrentPosition();
 	};
 }

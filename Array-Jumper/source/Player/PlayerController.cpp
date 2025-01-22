@@ -2,51 +2,53 @@
 #include "../../header/Player/PlayerModel.h"
 #include "../../header/Player/PlayerView.h"
 
-using namespace Player;
-
-void Player_Controller::Destroy()
+namespace Player
 {
-	delete(player_model);
-	delete(player_view);
-}
+	PlayerController::PlayerController()
+	{
+		player_model = new PlayerModel();
+		player_view = new PlayerView(this);
+	}
 
-Player_Controller::Player_Controller()
-{
-	player_model = new PlayerModel();
-	player_view = new PlayerView(this);
-}
+	PlayerController::~PlayerController()
+	{
+		destroy();
+	}
 
-Player_Controller::~Player_Controller()
-{
-	Destroy();
-}
+	void PlayerController::initialize()
+	{
+		player_model->initialize();
+		player_view->initialize();
+	}
 
-void Player_Controller::Initialize()
-{
-	player_view->Initialize();
-}
+	void PlayerController::update()
+	{
+		player_view->update();
+	}
 
-void Player_Controller::Update()
-{
-	player_view->Update();
-}
+	void PlayerController::render()
+	{
+		player_view->render();
+	}
 
-void Player_Controller::Render()
-{
-	player_view->Render();
-}
+	PlayerState PlayerController::getPlayerState()
+	{
+		return player_model->getPlayerState();
+	}
 
-PlayerState Player_Controller::GetPlayerState()
-{
-	return player_model->GetPlayerState();
-}
+	void PlayerController::setPlayerState(PlayerState new_player_state)
+	{
+		player_model->setPlayerState(new_player_state);
+	}
 
-void Player::Player_Controller::SetPlayerState(PlayerState state)
-{
-	player_model->SetPlayerState(state);
-}
+	void PlayerController::destroy()
+	{
+		delete(player_model);
+		delete(player_view);
+	}
 
-int Player::Player_Controller::GetCurrentPosition()
-{
-	return player_model->GetCurrentPosition();
+	int PlayerController::getCurrentPosition()
+	{
+		return player_model->getCurrentPosition();
+	}
 }

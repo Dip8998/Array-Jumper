@@ -4,19 +4,27 @@ namespace Player
 {
 	enum class PlayerState
 	{
-		Alive = 0,
-		Dead = 1
+		ALIVE,
+		DEAD
 	};
+
+
 	class PlayerModel
 	{
 	private:
-		int current_position;
-		PlayerState player_state;
-	public:
-		PlayerState GetPlayerState();
-		void SetPlayerState(PlayerState state);
 
-		int GetCurrentPosition();
-		void SetCurrentPosition(int position);
+		PlayerState player_state;
+		int current_position;
+
+	public:
+
+		void initialize();
+
+		PlayerState getPlayerState();
+		void setPlayerState(PlayerState new_player_state);
+
+		int getCurrentPosition();
+		void setCurrentPosition(int new_position);
 	};
+
 }

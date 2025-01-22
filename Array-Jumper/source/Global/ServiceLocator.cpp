@@ -43,7 +43,7 @@ namespace Global
 		sound_service->initialize();
 		ui_service->initialize();
 		level_service->initialize();
-		player_service->Initialize();
+		player_service->initialize();
 
 	}
 
@@ -56,7 +56,7 @@ namespace Global
 		if (GameService::getGameState() == GameState::GAMEPLAY)
 		{
 			level_service->update();
-			player_service->Update();
+			player_service->update();
 		}
 	}
 
@@ -68,7 +68,7 @@ namespace Global
 		if (GameService::getGameState() == GameState::GAMEPLAY)
 		{
 			level_service->render();
-			//player_service->Render();
+			player_service->render();
 		}
 	}
 
