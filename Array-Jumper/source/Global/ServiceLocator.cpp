@@ -99,4 +99,5 @@ namespace Global
 	PlayerService* ServiceLocator::getPlayerService() { return player_service; }
 
 	LevelService* ServiceLocator::getLevelService() { return level_service; }
+
 }
