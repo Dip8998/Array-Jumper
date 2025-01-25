@@ -30,6 +30,7 @@ namespace Player
 		void update();
 		void render();
 		void takeDamage();
+		void resetPlayer();
 
 		void readInput();
 		PlayerState getPlayerState();

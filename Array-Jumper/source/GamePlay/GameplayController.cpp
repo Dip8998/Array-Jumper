@@ -58,6 +58,12 @@ namespace Gameplay
 		{
 			processObstacle();
 		}
+
+		if (isEndBlock(value))
+		{
+			processEndBlock();
+		}
+
 	}
 
 	bool GameplayController::isEndBlock(Level::BlockType value)
@@ -67,5 +73,23 @@ namespace Gameplay
 			return true;
 		}
 		return false;
+	}
+
+	void GameplayController::processEndBlock()
+	{
+		ServiceLocator::getInstance()->getPlayerService()->levelComplete();
+		ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::LEVEL_COMPLETE);
+		GameService::setGameState(GameState::CREDITS);
+	}
+
+	void GameplayController::gameOver()
+	{
+		ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::DEATH);
+		GameService::setGameState(GameState::CREDITS);
+	}
+
+	void GameplayController::onDeath()
+	{
+		gameOver();
 	}
 }

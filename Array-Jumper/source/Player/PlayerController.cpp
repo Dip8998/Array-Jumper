@@ -83,6 +83,7 @@ namespace Player
 		ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::MOVE);
 		ServiceLocator::getInstance()->getGameplayService()->onPositionChanged(targetPosition);
 	}
+
 	void PlayerController::jump(MovementDirection direction)
 	{
 		int current_position = player_model->getCurrentPosition();
@@ -138,6 +139,11 @@ namespace Player
 	}
 
 	void PlayerController::takeDamage()
+	{
+		player_model->resetPlayer();
+	}
+
+	void PlayerController::resetPlayer()
 	{
 		player_model->resetPlayer();
 	}
