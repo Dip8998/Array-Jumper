@@ -29,6 +29,7 @@ namespace Player
 		void initialize();
 		void update();
 		void render();
+		void takeDamage();
 
 		void readInput();
 		PlayerState getPlayerState();
