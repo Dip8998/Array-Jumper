@@ -31,6 +31,8 @@ namespace Player
 		void render();
 		void takeDamage();
 		void resetPlayer();
+		int getCurrentLives();
+		void onDeath();
 
 		void readInput();
 		PlayerState getPlayerState();
