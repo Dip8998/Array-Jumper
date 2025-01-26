@@ -4,18 +4,16 @@
 #include "../../header/Global/ServiceLocator.h"
 #include "../../header/UI/UIElement/TextView.h"
 
-
-
 namespace UI
 {
     using namespace Main;
     using namespace SplashScreen;
     using namespace MainMenu;
     using namespace Credits;
-    using namespace GameplayUI;
     using namespace Instructions;
     using namespace Global;
     using namespace UIElement;
+    using namespace GameplayUI;
 
     UIService::UIService()
     {
@@ -23,8 +21,8 @@ namespace UI
         main_menu_ui_controller = nullptr;
         credits_screen_ui_controller = nullptr;
         instructions_ui_controller = nullptr;
+        instructions_ui_controller = nullptr;
         gameplay_ui_controller = nullptr;
-
         createControllers();
     }
 
@@ -116,6 +114,7 @@ namespace UI
         delete(splash_screen_ui_controller);
         delete(main_menu_ui_controller);
         delete(credits_screen_ui_controller);
+        delete(instructions_ui_controller);
         delete(instructions_ui_controller);
         delete(gameplay_ui_controller);
     }

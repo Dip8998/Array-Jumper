@@ -13,8 +13,8 @@ namespace Global
     {
     private:
         Graphics::GraphicService* graphic_service;
-        EventM::EventService* event_service;
-        SoundM::SoundService* sound_service;
+        Event::EventService* event_service;
+        Sound::SoundService* sound_service;
         UI::UIService* ui_service;
         Player::PlayerService* player_service;
         Level::LevelService* level_service;
@@ -34,8 +34,8 @@ namespace Global
         void render();
 
         Graphics::GraphicService* getGraphicService();
-        EventM::EventService* getEventService();
-        SoundM::SoundService* getSoundService();
+        Event::EventService* getEventService();
+        Sound::SoundService* getSoundService();
         UI::UIService* getUIService();
         Player::PlayerService* getPlayerService();
         Level::LevelService* getLevelService();

@@ -1,7 +1,7 @@
 #pragma once
 #include "SFML/Audio.hpp"
 
-namespace SoundM
+namespace Sound
 {
 	enum class SoundType
 	{
@@ -10,6 +10,7 @@ namespace SoundM
 		JUMP,
 		DEATH,
 		LEVEL_COMPLETE,
+		GAME_WON
 	};
 
 	class SoundService
@@ -24,6 +25,7 @@ namespace SoundM
 		sf::SoundBuffer buffer_jump;
 		sf::SoundBuffer buffer_death;
 		sf::SoundBuffer buffer_level_complete;
+		sf::SoundBuffer buffer_game_won;
 
 		void loadBackgroundMusicFromFile();
 		void loadSoundFromFile();

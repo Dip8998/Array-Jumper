@@ -14,13 +14,16 @@ namespace Player
 	private:
 		PlayerModel* player_model;
 		PlayerView* player_view;
-		EventM::EventService* event_service;
+		Event::EventService* event_service;
 
-		void destroy();
-		bool isPositionInBound(int targetPosition);
 		void move(MovementDirection direction);
 		void jump(MovementDirection direction);
+		bool isPositionInBound(int targetPosition);
 		Level::BlockType getCurrentBoxValue(int currentPosition);
+
+		void readInput();
+		void destroy();
+		void onDeath();
 
 	public:
 		PlayerController();
@@ -29,15 +32,13 @@ namespace Player
 		void initialize();
 		void update();
 		void render();
-		void takeDamage();
-		void resetPlayer();
-		int getCurrentLives();
-		void onDeath();
 
-		void readInput();
 		PlayerState getPlayerState();
 		void setPlayerState(PlayerState new_player_state);
-
+		void takeDamage();
+		void resetPlayer();
 		int getCurrentPosition();
+		int getCurrentLives();
+
 	};
 }

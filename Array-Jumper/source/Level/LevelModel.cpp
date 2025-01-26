@@ -39,7 +39,7 @@ namespace Level
 
 	bool LevelModel::isLastLevel()
 	{
-		if (current_level_index == LevelConfiguration::NUMBER_OF_LEVELS - 1)
+		if (current_level_index == LevelConfiguration::numnber_of_levels - 1)
 		{
 			return true;
 		}

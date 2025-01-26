@@ -1,7 +1,9 @@
-#pragma once 
+#pragma once
 
-namespace Player {
-	enum MovementDirection {
+namespace Player
+{
+	enum MovementDirection
+	{
 		FORWARD,
 		BACKWARD
 	};

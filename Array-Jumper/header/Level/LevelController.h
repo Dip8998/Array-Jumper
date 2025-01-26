@@ -1,11 +1,11 @@
 #pragma once
-#include "BlockType.h"
 
 namespace Level
 {
 	class LevelModel;
 	class LevelView;
 	struct BoxDimensions;
+	enum BlockType;
 
 	class LevelController
 	{
@@ -24,13 +24,12 @@ namespace Level
 		void update();
 		void render();
 
-		void loadNextLevel();
-		int getCurrentLevelNumber();
-		bool isLastLevel();
-		void resetLevels();
-
-
 		BlockType getCurrentBoxValue(int currentPosition);
 		BoxDimensions getBoxDimensions();
+
+		bool isLastLevel();
+		void loadNextLevel();
+		void resetLevels();
+		int getCurrentLevelNumber();
 	};
 }

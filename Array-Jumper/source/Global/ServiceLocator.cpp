@@ -8,8 +8,8 @@
 namespace Global
 {
 	using namespace Graphics;
-	using namespace EventM;
-	using namespace SoundM;
+	using namespace Event;
+	using namespace Sound;
 	using namespace UI;
 	using namespace Main;
 	using namespace Player;

@@ -24,8 +24,8 @@ namespace Level
         };
 
     public:
-        static const int NUMBER_OF_LEVELS = 3;
-        LevelData levels[NUMBER_OF_LEVELS];
+        static const int numnber_of_levels = 3;
+        LevelData levels[numnber_of_levels];
 
         LevelConfiguration()
         {

@@ -133,8 +133,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="source\GamePlay\GameplayController.cpp" />
-    <ClCompile Include="source\GamePlay\GameplayService.cpp" />
+    <ClCompile Include="source\Gameplay\GameplayController.cpp" />
+    <ClCompile Include="source\Gameplay\GameplayService.cpp" />
     <ClCompile Include="source\Global\Config.cpp" />
     <ClCompile Include="source\Event\EventService.cpp" />
     <ClCompile Include="main.cpp" />
@@ -143,7 +143,6 @@
     <ClCompile Include="source\Level\LevelModel.cpp" />
     <ClCompile Include="source\Level\LevelService.cpp" />
     <ClCompile Include="source\Level\LevelView.cpp" />
-    <ClCompile Include="source\Player\MovementDirection.cpp" />
     <ClCompile Include="source\Player\PlayerController.cpp" />
     <ClCompile Include="source\Player\PlayerModel.cpp" />
     <ClCompile Include="source\Player\PlayerService.cpp" />
@@ -152,7 +151,7 @@
     <ClCompile Include="source\Main\GameService.cpp" />
     <ClCompile Include="source\Graphics\GraphicService.cpp" />
     <ClCompile Include="source\UI\Credits\CreditsScreenUIController.cpp" />
-    <ClCompile Include="source\UI\GamePlay\GameplayUIController.cpp" />
+    <ClCompile Include="source\UI\Gameplay\GameplayUIController.cpp" />
     <ClCompile Include="source\UI\Instructions\InstructionsUIController.cpp" />
     <ClCompile Include="source\UI\MainMenu\MainMenuUIController.cpp" />
     <ClCompile Include="source\UI\SplashScreen\SplashScreenUIController.cpp" />
@@ -164,11 +163,12 @@
     <ClCompile Include="source\UI\UIService.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="header\GamePlay\GameplayController.h" />
-    <ClInclude Include="header\GamePlay\GameplayService.h" />
+    <ClInclude Include="header\Gameplay\GameplayController.h" />
+    <ClInclude Include="header\Gameplay\GameplayService.h" />
     <ClInclude Include="header\Global\Config.h" />
     <ClInclude Include="header\Event\EventService.h" />
     <ClInclude Include="header\Level\BlockType.h" />
+    <ClInclude Include="header\Level\LevelConfiguration.h" />
     <ClInclude Include="header\Level\LevelController.h" />
     <ClInclude Include="header\Level\LevelData.h" />
     <ClInclude Include="header\Level\LevelModel.h" />
@@ -183,7 +183,7 @@
     <ClInclude Include="header\Main\GameService.h" />
     <ClInclude Include="header\Graphics\GraphicService.h" />
     <ClInclude Include="header\UI\Credits\CreditsScreenUIController.h" />
-    <ClInclude Include="header\UI\GamePlay\GameplayUIController.h" />
+    <ClInclude Include="header\UI\Gameplay\GameplayUIController.h" />
     <ClInclude Include="header\UI\Instructions\InstructionsUIController.h" />
     <ClInclude Include="header\UI\MainMenu\MainMenuUIController.h" />
     <ClInclude Include="header\UI\SplashScreen\SplashScreenUIController.h" />

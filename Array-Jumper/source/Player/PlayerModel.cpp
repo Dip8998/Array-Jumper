@@ -40,8 +40,8 @@ namespace Player
 		return current_lives;
 	}
 
-	void PlayerModel::decrementLife()
-	{
+	void PlayerModel::decrementLife() 
+	{ 
 		current_lives--;
 	}
 

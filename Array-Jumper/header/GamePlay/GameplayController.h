@@ -20,8 +20,12 @@ namespace Gameplay
 		void render();
 
 		void onPositionChanged(int position);
-
+		void startGame();
 		void gameOver();
 		void onDeath();
+		bool isLastLevel();
+		void gameWon();
+		void loadNextLevel();
+
 	};
 }

@@ -49,13 +49,12 @@
     <ClCompile Include="source\Player\PlayerController.cpp" />
     <ClCompile Include="source\Player\PlayerService.cpp" />
     <ClCompile Include="source\Level\LevelModel.cpp" />
-    <ClCompile Include="source\Level\LevelView.cpp" />
     <ClCompile Include="source\Level\LevelController.cpp" />
+    <ClCompile Include="source\Level\LevelView.cpp" />
     <ClCompile Include="source\Level\LevelService.cpp" />
-    <ClCompile Include="source\Player\MovementDirection.cpp" />
-    <ClCompile Include="source\GamePlay\GameplayService.cpp" />
-    <ClCompile Include="source\GamePlay\GameplayController.cpp" />
-    <ClCompile Include="source\UI\GamePlay\GameplayUIController.cpp" />
+    <ClCompile Include="source\Gameplay\GameplayController.cpp" />
+    <ClCompile Include="source\Gameplay\GameplayService.cpp" />
+    <ClCompile Include="source\UI\Gameplay\GameplayUIController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header\Main\GameService.h">
@@ -91,15 +90,15 @@
     <ClInclude Include="header\Player\PlayerController.h" />
     <ClInclude Include="header\Player\PlayerService.h" />
     <ClInclude Include="header\Level\LevelModel.h" />
-    <ClInclude Include="header\Level\LevelView.h" />
     <ClInclude Include="header\Level\LevelController.h" />
+    <ClInclude Include="header\Level\LevelView.h" />
     <ClInclude Include="header\Level\LevelService.h" />
     <ClInclude Include="header\Level\BlockType.h" />
     <ClInclude Include="header\Level\LevelData.h" />
+    <ClInclude Include="header\Gameplay\GameplayController.h" />
+    <ClInclude Include="header\Gameplay\GameplayService.h" />
     <ClInclude Include="header\Player\MovementDirection.h" />
-    <ClInclude Include="header\GamePlay\GameplayService.h" />
-    <ClInclude Include="header\GamePlay\GameplayController.h" />
-    <ClInclude Include="header\UI\GamePlay\GameplayUIController.h" />
+    <ClInclude Include="header\UI\Gameplay\GameplayUIController.h" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="assets\sounds\background_music.mp3" />

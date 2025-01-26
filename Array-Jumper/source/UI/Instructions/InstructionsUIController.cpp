@@ -14,7 +14,7 @@ namespace UI
         using namespace UIElement;
         using namespace Main;
         using namespace Graphics;
-        using namespace SoundM;
+        using namespace Sound;
 
         InstructionsUIController::InstructionsUIController()
         {

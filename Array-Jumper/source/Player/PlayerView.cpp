@@ -51,12 +51,12 @@ namespace Player
 
 	void PlayerView::calculatePlayerDimensions()
 	{
-		current_box_dimensions = ServiceLocator::getInstance()->getLevelService()->getBoxDimensions();
+		current_box_dimensions= ServiceLocator::getInstance()->getLevelService()->getBoxDimensions();
 		player_width = current_box_dimensions.box_width;
 		player_height = current_box_dimensions.box_height;
 	}
-
-
+	
+	
 	sf::Vector2f PlayerView::calculatePlayerPosition()
 	{
 		float xPosition = current_box_dimensions.box_spacing + static_cast<float>(player_controller->getCurrentPosition()) * (current_box_dimensions.box_width + current_box_dimensions.box_spacing);

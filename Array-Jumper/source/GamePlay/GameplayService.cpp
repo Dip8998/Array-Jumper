@@ -37,4 +37,9 @@ namespace Gameplay
 	{
 		gameplay_controller->onDeath();
 	}
+
+	void GameplayService::startGame() 
+	{ 
+		gameplay_controller->startGame(); 
+	}
 }
