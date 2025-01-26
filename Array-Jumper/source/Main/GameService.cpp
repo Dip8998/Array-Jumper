@@ -4,7 +4,7 @@ namespace Main
 {
 	using namespace Graphics;
 	using namespace UI;
-	using namespace Sound;
+	using namespace SoundM;
 	using namespace Global;
 
 	GameState GameService::current_state = GameState::BOOT;

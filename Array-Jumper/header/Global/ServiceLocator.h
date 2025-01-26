@@ -3,6 +3,8 @@
 #include "../../header/Event/EventService.h"
 #include "../../header/UI/UIService.h"
 #include "../../header/Sound/SoundService.h"
+#include "../../header/Player/PlayerService.h"
+#include "../../header/Level/LevelService.h"
 
 namespace Global
 {
@@ -10,9 +12,11 @@ namespace Global
     {
     private:
         Graphics::GraphicService* graphic_service;
-        Event::EventService* event_service;
-        Sound::SoundService* sound_service;
+        EventM::EventService* event_service;
+        SoundM::SoundService* sound_service;
         UI::UIService* ui_service;
+        Player::PlayerService* player_service;
+        Level::LevelService* level_service;
 
         ~ServiceLocator();
 
@@ -28,8 +32,10 @@ namespace Global
         void render();
 
         Graphics::GraphicService* getGraphicService();
-        Event::EventService* getEventService();
-        Sound::SoundService* getSoundService();
+        EventM::EventService* getEventService();
+        SoundM::SoundService* getSoundService();
         UI::UIService* getUIService();
+        Player::PlayerService* getPlayerService();
+        Level::LevelService* getLevelService();
     };
 }

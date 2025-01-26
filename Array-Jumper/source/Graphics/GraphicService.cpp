@@ -22,7 +22,7 @@ namespace Graphics
 	sf::RenderWindow* GraphicService::createGameWindow()
 	{
 		configureVideoMode();
-		game_window = new sf::RenderWindow(video_mode, game_window_title, sf::Style::Fullscreen);
+		game_window = new sf::RenderWindow(video_mode, game_window_title, sf::Style::Default);
 		return game_window;
 	}
 
