@@ -6,7 +6,6 @@ namespace Level
 	struct BoxDimensions;
 	enum BlockType;
 
-
 	class LevelService
 	{
 	private:
@@ -22,7 +21,11 @@ namespace Level
 		void render();
 
 		BoxDimensions getBoxDimensions();
-		BlockType getCurrentBoxValue(int currentPosition);
 
+		BlockType getCurrentBoxValue(int currentPosition);
+		void loadNextLevel();
+		int getCurrentLevelNumber();
+		bool isLastLevel();
+		void resetLevels();
 	};
 }
