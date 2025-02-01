@@ -14,7 +14,7 @@ namespace UI
         using namespace Graphics;
         using namespace Main;
         using namespace UIElement;
-        using namespace SoundM;
+        using namespace Sound;
 
         MainMenuUIController::MainMenuUIController()
         {
@@ -75,7 +75,7 @@ namespace UI
         void MainMenuUIController::playButtonCallback()
         {
             ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::BUTTON_CLICK);
-            GameService::setGameState(GameState::GAMEPLAY);
+            ServiceLocator::getInstance()->getGameplayService()->startGame();
         }
 
         void MainMenuUIController::instructionsButtonCallback()

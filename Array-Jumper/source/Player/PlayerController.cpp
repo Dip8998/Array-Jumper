@@ -5,12 +5,12 @@
 #include "../../header/Global/ServiceLocator.h"
 #include "../../header/Sound/SoundService.h"
 
-using namespace Level;
-using namespace Global;
-using namespace SoundM;
-
 namespace Player
 {
+	using namespace Level;
+	using namespace Global;
+	using namespace Sound;
+
 	PlayerController::PlayerController()
 	{
 		player_model = new PlayerModel();
@@ -24,9 +24,9 @@ namespace Player
 
 	void PlayerController::initialize()
 	{
+		event_service=ServiceLocator::getInstance()->getEventService();
 		player_model->initialize();
 		player_view->initialize();
-		event_service = ServiceLocator::getInstance()->getEventService();
 	}
 
 	void PlayerController::update()
@@ -61,7 +61,8 @@ namespace Player
 		return player_model->getCurrentPosition();
 	}
 
-	void PlayerController::move(MovementDirection direction) {
+	void PlayerController::move(MovementDirection direction)
+	{
 		int steps, targetPosition;
 		switch (direction)
 		{
@@ -75,13 +76,50 @@ namespace Player
 			steps = 0;
 			break;
 		}
+
 		targetPosition = player_model->getCurrentPosition() + steps;
+
 		if (!isPositionInBound(targetPosition))
+		{
 			return;
+		}
 
 		player_model->setCurrentPosition(targetPosition);
 		ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::MOVE);
 		ServiceLocator::getInstance()->getGameplayService()->onPositionChanged(targetPosition);
+	}
+
+	bool PlayerController::isPositionInBound(int targetPosition)
+	{
+		if (targetPosition >= 0 && targetPosition < LevelData::number_of_boxes)
+		{
+			return true;
+		}
+
+		return false;
+	}
+
+	void PlayerController::readInput()
+	{
+		if (event_service->pressedRightArrowKey() || event_service->pressedDKey())
+		{
+			if (event_service->heldSpaceKey())
+				jump(MovementDirection::FORWARD);
+			else
+				move(MovementDirection::FORWARD);
+		}
+		if (event_service->pressedLeftArrowKey() || event_service->pressedAKey())
+		{
+			if (event_service->heldSpaceKey())
+				jump(MovementDirection::BACKWARD);
+			else
+				move(MovementDirection::BACKWARD);
+		}
+	}
+
+	BlockType PlayerController::getCurrentBoxValue(int currentPosition)
+	{
+		return ServiceLocator::getInstance()->getLevelService()->getCurrentBoxValue(currentPosition);
 	}
 
 	void PlayerController::jump(MovementDirection direction)
@@ -112,31 +150,6 @@ namespace Player
 		ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::JUMP);
 		ServiceLocator::getInstance()->getGameplayService()->onPositionChanged(targetPosition);
 	}
-	
-	bool PlayerController::isPositionInBound(int targetPosition) {
-		if (targetPosition >= 0 && targetPosition < LevelData::NUMBER_OF_BOXES) {
-			return true;
-		}
-		return false;
-	}
-
-	void PlayerController::readInput()
-	{
-		if (event_service->pressedRightArrowKey() || event_service->pressedDKey())
-		{
-			if (event_service->heldSpaceKey())
-				jump(MovementDirection::FORWARD);
-			else
-				move(MovementDirection::FORWARD);
-		}
-		if (event_service->pressedLeftArrowKey() || event_service->pressedAKey())
-		{
-			if (event_service->heldSpaceKey())
-				jump(MovementDirection::BACKWARD);
-			else
-				move(MovementDirection::BACKWARD);
-		}
-	}
 
 	void PlayerController::takeDamage()
 	{
@@ -149,6 +162,7 @@ namespace Player
 		{
 			player_model->resetPosition();
 		}
+	
 	}
 
 	void PlayerController::resetPlayer()
@@ -165,10 +179,5 @@ namespace Player
 	{
 		ServiceLocator::getInstance()->getGameplayService()->onDeath();
 		player_model->resetPlayer();
-	}
-
-	BlockType PlayerController::getCurrentBoxValue(int currentPosition)
-	{
-		return ServiceLocator::getInstance()->getLevelService()->getCurrentBoxValue(currentPosition);
 	}
 }

@@ -12,7 +12,7 @@ namespace UI
         using namespace Main;
         using namespace Global;
         using namespace UIElement;
-        using namespace SoundM;
+        using namespace Sound;
 
         SplashScreenUIController::SplashScreenUIController()
         {

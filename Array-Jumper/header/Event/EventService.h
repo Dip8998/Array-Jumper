@@ -2,7 +2,7 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Window/Event.hpp>
 
-namespace EventM
+namespace Event
 {
 	enum class ButtonState
 	{

@@ -3,7 +3,7 @@
 #include "../../header/Graphics/GraphicService.h"
 #include <iostream>
 
-namespace EventM
+namespace Event
 {
     using namespace Global;
     using namespace Graphics;

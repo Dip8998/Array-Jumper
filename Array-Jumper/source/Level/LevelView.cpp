@@ -60,7 +60,7 @@ namespace Level
 		letter_three_overlay_image->initialize(Config::letter_three_texture_path, box_dimensions.box_width, box_dimensions.box_height, sf::Vector2f(0, 0));
 		obstacle_one_overlay_image->initialize(Config::obstacle_01_texture_path, box_dimensions.box_width, box_dimensions.box_height, sf::Vector2f(0, 0));
 		obstacle_two_overlay_image->initialize(Config::obstacle_02_texture_path, box_dimensions.box_width, box_dimensions.box_height, sf::Vector2f(0, 0));
-
+	
 	}
 
 	void LevelView::updateImages()
@@ -79,7 +79,7 @@ namespace Level
 	{
 		background_image->render();
 
-		for (int i = 0; i < LevelData::NUMBER_OF_BOXES; ++i)
+		for (int i = 0; i < LevelData::number_of_boxes; ++i)
 		{
 			sf::Vector2f position = calculateBoxPosition(i);
 			BlockType blockTypeToDraw = level_controller->getCurrentBoxValue(i);
@@ -115,7 +115,7 @@ namespace Level
 	void LevelView::calculateBoxWidthHeight()
 	{
 		float screenWidth = static_cast<float>(game_window->getSize().x);
-		int numBoxes = LevelData::NUMBER_OF_BOXES;
+		int numBoxes = LevelData::number_of_boxes;
 
 		int numGaps = numBoxes + 1;
 

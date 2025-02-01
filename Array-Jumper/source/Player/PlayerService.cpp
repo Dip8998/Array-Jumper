@@ -18,7 +18,7 @@ namespace Player
 	{
 		player_controller->initialize();
 	}
-
+	
 	void PlayerService::update()
 	{
 		player_controller->update();
@@ -34,13 +34,19 @@ namespace Player
 		delete(player_controller);
 	}
 
-	void PlayerService::takeDamage() {
+	void PlayerService::takeDamage()
+	{
 		player_controller->takeDamage();
 	}
 
 	void PlayerService::levelComplete()
 	{
 		player_controller->resetPlayer();
+	}
+
+	void PlayerService::resetPlayer() 
+	{ 
+		player_controller->resetPlayer(); 
 	}
 
 	int PlayerService::getCurrentLives()
